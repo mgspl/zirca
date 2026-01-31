@@ -3,6 +3,7 @@
 set -xeuo pipefail
 
 dnf -y install 'dnf5-command(config-manager)'
+dnf config-manager setopt keepcache=1
 
 dnf -y remove \
   console-login-helper-messages \

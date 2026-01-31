@@ -52,6 +52,7 @@ dnf -y install \
     openssh-askpass \
     pipewire \
     playerctl \
+    qt6-qtmultimedia \
     udiskie \
     webp-pixbuf-loader \
     wireplumber \

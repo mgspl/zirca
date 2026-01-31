@@ -47,6 +47,7 @@ g greeter 767
 u greeter 767 "Greetd greeter"
 EOF
 
+dnf config-manager setopt keepcache=0
 ### Disable fedora-multmedia here again 
 dnf config-manager setopt fedora-multimedia.enabled=0
 
