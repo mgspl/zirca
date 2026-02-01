@@ -29,15 +29,9 @@ tee /usr/lib/modules-load.d/ntsync.conf <<'EOF'
 ntsync
 EOF
 
-KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
-export DRACUT_NO_XATTR=1
-depmod -a "$(ls -1 /lib/modules/ | tail -1)"
-dracut --no-hostonly --kver "$KERNEL_VERSION" --reproducible --zstd -v --add ostree -f "/usr/lib/modules/$KERNEL_VERSION/initramfs.img"
-chmod 0600 "/usr/lib/modules/${KERNEL_VERSION}/initramfs.img"
-
 ### Enable Nobara and install things
 dnf -y copr enable gloriouseggroll/nobara-43
-dnf -y --setopt=install_weak_deps=False install gpu-screen-recorder-ui falcond falcond-profiles falcond-gui mangohud mangojuice starship
+dnf -y --setopt=install_weak_deps=False install gpu-screen-recorder-ui falcond falcond-profiles falcond-gui mangohud mangojuice
 dnf -y copr disable gloriouseggroll/nobara-43
 
 ### Lact from nobara is weird

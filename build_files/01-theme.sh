@@ -35,7 +35,8 @@ dnf -y \
     dsearch
 install -Dpm0644 -t /usr/lib/pam.d/ /usr/share/quickshell/dms/assets/pam/* # Fixes long login times on fingerprint auth
 
-dnf -y install \
+dnf -y install --setopt=install_weak_deps=False \
+    chezmoi \
     fpaste \
     fzf \
     git-core \
@@ -98,10 +99,14 @@ dnf install -y \
 
 cp -avf "/ctx/files"/. /
 
+systemctl enable --global chezmoi-init.service
+systemctl enable --global chezmoi-update.timer
 systemctl enable --global dms.service
 systemctl enable --global gnome-keyring-daemon.service
 systemctl enable --global gnome-keyring-daemon.socket
 systemctl enable --global udiskie.service
+systemctl preset --global chezmoi-init
+systemctl preset --global chezmoi-update
 systemctl preset --global udiskie
 systemctl enable flatpak-preinstall.service
 
@@ -130,6 +135,8 @@ unzip "${MAPLE_NF_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono NF"
 rm -rf "${MAPLE_NF_TMPDIR}"
 
 fc-cache --force --really-force --system-only --verbose # recreate font-cache to pick up the added fonts
+
+echo 'source /usr/share/zirconium/shell/pure.bash' | tee -a "/etc/bashrc"
 
 tee /usr/lib/tmpfiles.d/99-greeter-config.conf <<'EOF'
 L /var/cache/dms-greeter/settings.json - greeter greeter - /usr/share/zirconium/zdots/dot_config/DankMaterialShell/settings.json
