@@ -1,2 +1,4 @@
+enable chezmoi-init.service
+enable chezmoi-update.timer
 enable dms.service
 enable udiskie.service
