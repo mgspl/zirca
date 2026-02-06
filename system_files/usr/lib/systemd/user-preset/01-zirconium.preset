@@ -1,4 +1,6 @@
 enable chezmoi-init.service
 enable chezmoi-update.timer
+enable gnome-keyring-daemon.service
+enable gnome-keyring-daemon.socket
 enable dms.service
 enable udiskie.service

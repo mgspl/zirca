@@ -1,5 +1,5 @@
 # Zirca
-*** Not opinionated Niri bootc image 😡 ***
+***Not opinionated Niri bootc image***
 
 ## Why?
 Zirconium is great and target a lot of devices, unfortunately i dont own a lot of devices 😥, also i prefer kittys instead of foots.
