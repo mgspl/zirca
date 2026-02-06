@@ -35,5 +35,4 @@ systemctl enable rechunker-group-fix.service
 # These files NEED to be on the image.
 grep -F -e "ghcr.io/zirconium-dev" /etc/containers/policy.json
 stat /usr/share/pki/containers/zirconium.pub
-stat /usr/share/pki/containers/jackrabbit.pub
 stat /usr/bin/luks*tpm*
