@@ -36,3 +36,8 @@ systemctl enable rechunker-group-fix.service
 grep -F -e "ghcr.io/zirconium-dev" /etc/containers/policy.json
 stat /usr/share/pki/containers/zirconium.pub
 stat /usr/bin/luks*tpm*
+
+# Symlinks.
+rm -rfv /opt /usr/local
+ln -s /var/usrlocal /usr/local
+ln -s /var/opt /

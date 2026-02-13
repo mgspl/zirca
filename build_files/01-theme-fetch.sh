@@ -61,7 +61,7 @@ dnf install -y --setopt=install_weak_deps=False \
 # Codecs for video thumbnails on nautilus
 dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 dnf config-manager setopt fedora-multimedia.enabled=0
-dnf -y install --enablerepo=fedora-multimedia \
+dnf -y install --enablerepo=fedora-multimedia --skip-unavailable \
     -x PackageKit* \
     ffmpeg libavcodec @multimedia gstreamer1-plugins-{bad-free,bad-free-libs,good,base} lame{,-libs} libjxl ffmpegthumbnailer
 
@@ -92,6 +92,7 @@ LATEST_RELEASE_FONT="$(curl --retry 3 "https://api.github.com/repos/subframe7536
 curl --retry 3 -fSsLo "${MAPLE_NF_TMPDIR}/maple.zip" "${LATEST_RELEASE_FONT}"
 unzip "${MAPLE_NF_TMPDIR}/maple.zip" -d "/usr/share/fonts/Maple Mono NF"
 rm -rf "${MAPLE_NF_TMPDIR}"
+
 
 # These need to be here because having them on the layers breaks everything
 rm -rf /usr/share/doc/niri

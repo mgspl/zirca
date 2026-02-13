@@ -15,19 +15,11 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-a
   scx-scheds-git \
   scx-manager
 
-### Enable Nobara and install things
-dnf -y copr enable gloriouseggroll/nobara-43
-dnf -y --setopt=install_weak_deps=False install gpu-screen-recorder-ui falcond falcond-profiles falcond-gui mangohud mangojuice
-dnf -y copr disable gloriouseggroll/nobara-43
-
-### Lact from nobara is weird
-dnf -y copr enable ilyaz/LACT
-dnf -y install lact
-dnf -y copr disable ilyaz/LACT
-
-### Add mesa from negativo
-dnf config-manager setopt fedora-multimedia.enabled=1
-dnf -y swap --repo=fedora-multimedia mesa-filesystem mesa-filesystem 
+### Add mesa custom
+dnf -y copr enable mgspl/zirca-packages 
+dnf -y swap --repo=copr:copr.fedorainfracloud.org:mgspl:zirca-packages mesa-filesystem mesa-filesystem
+### Add falcond
+dnf -y install falcond falcond-profiles
 
 ### Add steam into base image
 ### I was using an container to install Steam but after an shower thinking its kinda dumb this image is to provide me an stable base
@@ -37,7 +29,17 @@ dnf -y  --setopt=install_weak_deps=False install --enablerepo=fedora-steam \
     -x PackageKit* \
     steam
 
-### Instal Hblock
+### Install Lact
+dnf -y copr enable ilyaz/LACT
+dnf -y install lact
+dnf -y copr disable ilyaz/LACT
+
+### Install gpu-screen-recorder-ui
+dnf -y copr enable brycensranch/gpu-screen-recorder-git
+dnf -y --setopt=install_weak_deps=False install gpu-screen-recorder-ui
+dnf -y copr disable brycensranch/gpu-screen-recorder-git
+
+### Install Hblock
 dnf -y copr enable pesader/hblock
 dnf -y install hblock
 systemctl enable hblock.timer
@@ -56,4 +58,9 @@ dnf -y --setopt=install_weak_deps=False install \
 	openrgb	  \
 	openrgb-udev-rules \
 	adw-gtk3-theme \
+	mangohud \
+	goverlay \
 	firefox
+
+### Disable copr here
+dnf -y copr disable mgspl/zirca-packages
