@@ -14,7 +14,7 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install ma
 dnf -y copr enable mgspl/zirca-packages
 dnf -y copr disable mgspl/zirca-packages
 dnf -y config-manager setopt copr:copr.fedorainfracloud.org:mgspl:zirca-packages.priority=1
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:mgspl:zirca-packages install --setopt=install_weak_deps=False niri
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:mgspl:zirca-packages install --setopt=install_weak_deps=False niri libwayland-server
 
 dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
