@@ -10,7 +10,8 @@ Zirconium is great and target a lot of devices, unfortunately i dont own a lot o
 - Removed a lot of firmwares
 - Removed Brew
 - Removed UUPD 
-- Added Cachyos kernel, Cachyos settings, Cachy Firefox settings, and Scx/Manager
+- Added Cachyos settings, Cachy Firefox settings, and Scx/Manager
+- Added Custom kernel based on Nobara ⚠️⚠️⚠️ Compiled with ZEN3 march ⚠️⚠️⚠️
 - Added Steam, Mangohud and MangoJuice 
 - Added LACT, OpenRGB, Firefox, gpu-screen-recorder-ui, neovim, starship, falcond
 - Hardcoded Portuguese Language (The world is now Brasil!)

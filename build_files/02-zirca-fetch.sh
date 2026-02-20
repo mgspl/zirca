@@ -3,10 +3,15 @@
 set -ouex pipefail
 
 ### Install Kernel Cachyos (Stole From Piperita)
-dnf -y copr enable bieszczaders/kernel-cachyos-lto
-dnf -y copr disable bieszczaders/kernel-cachyos-lto
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-lto install \
-  kernel-cachyos-lto
+#dnf -y copr enable bieszczaders/kernel-cachyos-lto
+#dnf -y copr disable bieszczaders/kernel-cachyos-lto
+#dnf -y --enablerepo copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos-lto install \
+#  kernel-cachyos-lto
+
+dnf -y copr enable mgspl/zirca-packages 
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:mgspl:zirca-packages install \
+  kernel
+
 
 dnf -y copr enable bieszczaders/kernel-cachyos-addons
 dnf -y copr disable bieszczaders/kernel-cachyos-addons
