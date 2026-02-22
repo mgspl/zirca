@@ -56,6 +56,11 @@ curl -X 'GET' 'https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/refs/
 mkdir -p /etc/firefox/policies/
 curl -X 'GET' 'https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/refs/heads/master/cachyos-firefox-settings/policies.json' > /etc/firefox/policies/policies.json
 
+### Install Helium 
+dnf -y copr enable imput/helium
+dnf -y install helium-bin
+dnf -y copr disable imput/helium
+
 ### Install packages from repos
 dnf -y --setopt=install_weak_deps=False install \
 	kitty 	\
