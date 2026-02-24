@@ -1,6 +1,8 @@
 enable chezmoi-init.service
 enable chezmoi-update.timer
+enable dms.service
 enable gnome-keyring-daemon.service
 enable gnome-keyring-daemon.socket
-enable dms.service
+enable gcr-ssh-agent.service
+enable gcr-ssh-agent.socket
 enable udiskie.service

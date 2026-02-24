@@ -61,6 +61,19 @@ dnf -y copr enable imput/helium
 dnf -y install helium-bin
 dnf -y copr disable imput/helium
 
+### Install AntiGravity
+tee /etc/yum.repos.d/antigravity.repo << EOL
+[antigravity-rpm]
+name=Antigravity RPM Repository
+baseurl=https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm
+enabled=1
+gpgcheck=0
+EOL
+
+dnf makecache
+dnf -y install antigravity
+dnf config-manager setopt antigravity-rpm.enabled=0
+
 ### Install packages from repos
 dnf -y --setopt=install_weak_deps=False install \
 	kitty 	\

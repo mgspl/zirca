@@ -15,7 +15,6 @@ dnf -y copr enable mgspl/zirca-packages
 dnf -y copr disable mgspl/zirca-packages
 dnf -y config-manager setopt copr:copr.fedorainfracloud.org:mgspl:zirca-packages.priority=1
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:mgspl:zirca-packages install --setopt=install_weak_deps=False niri libwayland-server
-niri --version | grep -i -E "niri [[:digit:]]*\.[[:digit:]]* (.*\.git\..*)"
 
 dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
@@ -35,6 +34,7 @@ dnf -y install \
     chezmoi \
     fastfetch \
     fzf \
+    gcr \
     git-core \
     glycin-thumbnailer \
     gnome-keyring \

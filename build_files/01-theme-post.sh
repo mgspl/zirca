@@ -17,6 +17,8 @@ systemctl preset --global chezmoi-update.timer
 systemctl preset --global dms.service
 systemctl preset --global gnome-keyring-daemon.service
 systemctl preset --global gnome-keyring-daemon.socket
+systemctl preset --global gcr-ssh-agent.service
+systemctl preset --global gcr-ssh-agent.socket
 systemctl preset --global udiskie.service
 
 install -Dpm0644 -t /usr/share/plymouth/themes/spinner/ /ctx/assets/logos/watermark.png
