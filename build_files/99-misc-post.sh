@@ -38,6 +38,6 @@ stat /usr/share/pki/containers/zirconium.pub
 stat /usr/bin/luks*tpm*
 
 # Symlinks.
-rm -rfv /opt /usr/local
+# Helium is installed in opt so do not remove it
+rm -rfv /usr/local
 ln -s /var/usrlocal /usr/local
-ln -s /var/opt /
